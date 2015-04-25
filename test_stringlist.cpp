@@ -11,7 +11,7 @@ using namespace std;
 #include "stringlist.hpp"
 
 int main() {
-	cout << "\n" << "TEST\n\n";
+	cout << "\n" << "STRING LIST TEST\n\n";
 
 	cout << "Create new list l...\n";
 	StringList l;
@@ -34,7 +34,7 @@ int main() {
 	l.print();
 	cout << "\n\n";
 
-	cout << "Copy l to l2 so the rest of the family know what's up...\n";
+	cout << "Copy l to l2 so the rest of the family knows what's up...\n";
 	StringList l2(l);
 	cout << "Copying done: ";
 	l2.print();
