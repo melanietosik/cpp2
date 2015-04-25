@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // test_stringlist.cpp
-// Test für verkettete Listen von Zeichenketten
+// Tests single-linked list of ASCIIZ strings
 // Melanie Tosik (759476)
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -11,107 +11,107 @@ using namespace std;
 #include "stringlist.hpp"
 
 int main() {
-	cout << "\n" << "ZEICHENKETTENTEST!\n\n";
+	cout << "\n" << "TEST\n\n";
 
-	cout << "Neue Liste l erzeugen...\n";
+	cout << "Create new list l...\n";
 	StringList l;
-	cout << "Ist anfangs noch leer: ";
+	cout << "Should be empty in the beginning: ";
 	l.print();
 	cout << "\n\n";
 
-	cout << "Machen wir eine Einkaufsliste draus...\n\n";
-	cout << "Butter und Zucker vorne dran...\n";
-	l.append_front("Butter");
-	l.append_front("Zucker");
-	cout << "Tatsache: ";
+	cout << "Let's make it a grocery list...\n\n";
+	cout << "Butter and sugar at the front...\n";
+	l.append_front("butter");
+	l.append_front("sugar");
+	cout << "Check: ";
 	l.print();
 	cout << "\n\n";
 
-	cout << "Mehl und Ei nach hinten...\n";
-	l.append_back("Mehl");
-	l.append_back("Ei");
-	cout << "Geht auch: ";
+	cout << "Flour and an egg at the end...\n";
+	l.append_back("flour");
+	l.append_back("egg");
+	cout << "Looks good: ";
 	l.print();
 	cout << "\n\n";
 
-	cout << "Kopieren wir l nach l2, für den Rest der Familie...\n";
+	cout << "Copy l to l2 so the rest of the family know what's up...\n";
 	StringList l2(l);
-	cout << "Ist kopiert: ";
+	cout << "Copying done: ";
 	l2.print();
 	cout << "\n\n";
 
-	cout << "Radieren wir die Elemente aus l2 nochmal aus...\n\n";
+	cout << "Let's clear l2 again...\n\n";
 	l2.clear();
 
-	cout << "Liste auch wirklich leer?\n";
+	cout << "Did that work?\n";
 	if (l2.is_empty()) {
-		cout << "Leer!\n";
+		cout << "Empty!\n";
 	} else {
-		cout << "Nicht leer!\n"; 
+		cout << "Not empty!\n"; 
 	}
 	l2.print();
 	cout << "\n\n";
 
-	cout << "Und benutzen stattdessen den Zuweisungsoperator...\n";
+	cout << "... and use assignment instead...\n";
 	l2 = l;
-	cout << "Da ist sie wieder: ";
+	cout << "There it is: ";
 	l2.print();
 	cout << "\n\n";
 
-	cout << "Wie viele Sachen brauchen wir jetzt nochmal?\n";
+	cout << "How many things will we have to carry again?\n";
 	cout << l2.length() << "\n\n";
 
-	cout << "Waren die beiden Listen auch gleich?\n";
+	cout << "Make sure the two lists are the same?\n";
 	if (l == l2) {
-		cout << "Gleich!\n\n";
+		cout << "Equal!\n\n";
 	} else {
-		cout << "Nicht gleich!\n\n"; 
+		cout << "Not equal!\n\n"; 
 	}
 
-	cout << "Oder ist l vielleicht kleiner als l2?\n";
+	cout << "Or is l smaller than l2?\n";
 	if (l < l2) {
-		cout << "Kleiner!\n\n";
+		cout << "Smaller!\n\n";
 	} else {
-		cout << "Nicht kleiner!\n\n"; 
+		cout << "Not smaller!\n\n"; 
 	}
 
-	cout << "Machen wir aus einem Ei doch besser mehrere Eier...\n\n";
+	cout << "Better get more than one egg though...\n\n";
 	l2.clear();
-	l2.append_back("Zucker");
-	l2.append_back("Butter");
-	l2.append_back("Mehl");
-	l2.append_back("Eier");
+	l2.append_back("sugar");
+	l2.append_back("butter");
+	l2.append_back("flour");
+	l2.append_back("eggs");
 
-	cout << "Erste Liste:\t";
+	cout << "First list:\t";
 	l.print();
 	cout << "\n";
-	cout << "Zweite Liste:\t";
+	cout << "Second list:\t";
 	l2.print();
 	cout << "\n\n";
 
-	cout << "Sind die beiden Listen immer noch gleich?\n";
+	cout << "Still the same?\n";
 	if (l == l2) {
-		cout << "Gleich!\n\n";
+		cout << "Equal!\n\n";
 	} else {
-		cout << "Nicht gleich!\n\n"; 
+		cout << "Not equal!\n\n"; 
 	}
 
-	cout << "Oder ist l vielleicht kleiner als l2?\n";
+	cout << "Or maybe l is smaller than l2 now?\n";
 	if (l < l2) {
-		cout << "Kleiner!\n\n";
+		cout << "Smaller!\n\n";
 	} else {
-		cout << "Nicht kleiner!\n\n"; 
+		cout << "Not smaller!\n\n"; 
 	}
 
-	cout << "Aber l2 ist hoffentlich nicht kleiner als l?\n";
+	cout << "But then l2 shouldn't be smaller than l, right?\n";
 	if (l2 < l) {
-		cout << "Kleiner!\n\n";
+		cout << "Smaller!\n\n";
 	} else {
-		cout << "Nicht kleiner!\n\n"; 
+		cout << "Not smaller! Phew!\n\n"; 
 	}
 
-	cout << "Hätte ich mir die ganze Printerei auch sparen können, und die Listen direkt ausgeben?\n\n";
+	cout << "Should I have used the new << operator instead of print()ing all those lists?\n\n";
 	cout << l << "\n";
 	cout << l2 << "\n\n";
-	cout << "Sieht so aus!\n";
+	cout << "Looks like it!\n";
 }
