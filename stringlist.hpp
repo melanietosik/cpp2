@@ -87,6 +87,7 @@ public:
     else return false;
   }
 
+  /// Overload << to easily print lists on std::cout
   friend ostream& operator<<(ostream& o, const StringList& sl)
   {
     // WIP
