@@ -89,9 +89,8 @@ namespace GraphLibrary {
     }
 
   private:
-
-	std::queue<Node>                 ToVisit;
-	std::unordered_set<Node>  AlreadyVisited;
+	 std::queue<Node>                 ToVisit;
+	 std::unordered_set<Node>  AlreadyVisited;
   	
   /// Helper function; returns true if a node has already been visited
   bool is_already_visited(Node& n) {
@@ -102,7 +101,7 @@ namespace GraphLibrary {
     const LabeledDirectedGraph<GRAPHEDGE>& the_graph;
   }; // GraphDFSSearch
 
-} // namespace detail
+  } // namespace detail
 
 } // namespace GraphLibrary
 
