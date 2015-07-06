@@ -8,6 +8,9 @@
 
 using namespace std;
 
+// using std::map
+// using std::
+
 // Numerical sort 
 struct sort_helper{
   bool operator()(const pair<string,int> lhs, const pair<string,int> rhs) const {
@@ -50,8 +53,12 @@ int main(int argc, const char *argv[])
 
   sort(word_vector.begin(),word_vector.end(),sort_helper());
 
+  // for (auto t=type_freq_iters.begin(); t!=type_freq_iters.end(), TypeCmpByFreq()) {
+  //   cout << (*t)->second << "\t" << (*t)->first << endl;
+  // }
+
   for(int i=0; i<word_vector.size(); ++i)
   // for(int i=0; i<20; ++i)
-    // cout << setw(5) << left << word_vector[i].second << " " << word_vector[i].first << endl;
-    cout << word_vector[i].first << "\n";
+    cout << setw(5) << left << word_vector[i].second << " " << word_vector[i].first << endl;
+    // cout << word_vector[i].first << "\n";
 }
