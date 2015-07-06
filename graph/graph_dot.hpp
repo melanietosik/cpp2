@@ -10,6 +10,7 @@
 #include <fstream> 
 
 namespace GraphLibrary {
+  
   template<class GRAPHEDGE>
 
   /// Writes the graph in dot format to dot_file
