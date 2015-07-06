@@ -10,9 +10,9 @@
 #include <fstream> 
 
 namespace GraphLibrary {
-  template<class GRAPHEDGE>
-
+  
   /// Writes the graph in dot format to dot_file
+  template<class GRAPHEDGE>
   void draw(const LabeledDirectedGraph<GRAPHEDGE>& g, const char* dot_file)
   {
     std::ofstream dot_out(dot_file);
