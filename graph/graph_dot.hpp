@@ -10,7 +10,6 @@
 #include <fstream> 
 
 namespace GraphLibrary {
-  
   template<class GRAPHEDGE>
 
   /// Writes the graph in dot format to dot_file
@@ -20,9 +19,9 @@ namespace GraphLibrary {
     if (dot_out) {
       dot_out << "digraph FSM {\n";
       // Write header
-      dot_out << "  graph [rankdir=LR, size=\"6.0,6.0\", fontsize=14, center=1, orientation=Portrait];\n";
-      dot_out << "  node  [style=filled, color=blue, fontname=Arial, fontcolor=white, shape=circle];\n";
-      dot_out << "  edge  [fontname=Arial];\n\n";
+      dot_out << "  graph [rankdir=LR, size=\"6.0,6.0\", fontsize=12, center=1];\n";
+      dot_out << "  node  [style=filled, color=blue, fontname=Arial, fontcolor=white, shape=box];\n";
+      dot_out << "  edge  [fontname=Times];\n\n";
 
       // Iterate over all graph nodes
       for (auto n = g.nodes().begin(); n != g.nodes().end(); ++n) {
