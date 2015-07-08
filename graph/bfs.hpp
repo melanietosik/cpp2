@@ -11,7 +11,7 @@
 #include <set>
 #include <queue>
 
-#include "labeledgraph.hpp"
+#include "labeled_graph.hpp"
 
 namespace GraphLibrary {
   

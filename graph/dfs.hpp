@@ -9,7 +9,7 @@
 
 #include <map>
 
-#include "labeledgraph.hpp"
+#include "labeled_graph.hpp"
 
 namespace GraphLibrary {
   

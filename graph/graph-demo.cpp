@@ -4,18 +4,18 @@
 // TH, 29.6.15
 // Demonstrates dot format and breadth-first search
 // MT,  6.7.15
-//
-// dot mt.dot -Tpdf -o mt_movies_test.pdf
 ////////////////////////////////////////////////////////////////////////////////
 
 #include <string>
 #include <vector>
+#include <iostream>
+#include <fstream>
 
 #include "graph_edge.hpp"
 #include "labeled_graph.hpp"
-#include "bfs.hpp"
 #include "dfs.hpp"
-#include "graph_dot.hpp"
+#include "bfs.hpp"
+#include "graph_output.hpp"
 
 // Import some graph data types
 using GraphLibrary::SimpleGraphEdge;
@@ -57,16 +57,10 @@ private:
 }; // NodeStorer
 
   
-int main(int argc, char* argv[])
+int main()
 {
-  if (argc!=2) {
-    std::cerr << "Missing name for dot-file.\n";
-    exit(1);
-  }
-
   // Example movie graph
   LabeledDirectedGraph<Edge> movies;
-  
   movies.add(Edge("Sigourny Weaver","performed_in","Alien"));
   movies.add(Edge("Ridley Scott ","directed","Alien"));
   movies.add(Edge("Ridley Scott ","directed","Body of lies"));
@@ -82,14 +76,9 @@ int main(int argc, char* argv[])
   std::cout << "\nDo a DFS on the graph and print the nodes in the discovery order:\n";
   NodePrinter<Edge::Node> output_nodes_on(std::cout);
   GraphLibrary::depth_first_search(movies,output_nodes_on,true);
-
-  // Create PDF from from dot-file with
-  // dot -Tpdf -o dot-file.dot
-  GraphLibrary::draw<Edge>(movies, argv[1]);
   
   // Example style guide graph
   LabeledDirectedGraph<Edge> style_guide;
-
   style_guide.add(Edge("trousers","before","shoes"));
   style_guide.add(Edge("socks","before","shoes"));
   style_guide.add(Edge("slip","before","trousers"));
@@ -113,13 +102,13 @@ int main(int argc, char* argv[])
     std::cout << *n << std::endl;
   }
 
-  // // Create PDF from from dot-file with
-  // // dot -Tpdf -o dot-file.dot
-  // GraphLibrary::draw<Edge>(style_guide, argv[1]);
+  std::cout << "\nPrinting graph in dot representation...\n";
+  std::ofstream dot_out("style.dot");
+  GraphLibrary::graph_as_dot(style_guide,dot_out);
+
 
   // Example lexicon graph
   LabeledDirectedGraph<Edge> lexicon;
-  
   lexicon.add(Edge("<>","c","c"));
   lexicon.add(Edge("<>","f","f"));
   lexicon.add(Edge("<>","d","d"));
@@ -139,8 +128,7 @@ int main(int argc, char* argv[])
   std::cout << "\nDo a BFS on the lexicon trie:\n";
   GraphLibrary::breadth_first_search(lexicon,"<>",output_nodes_on);
 
-  // // Create PDF from from dot-file with
-  // // dot -Tpdf -o dot-file.dot
-  // GraphLibrary::draw<Edge>(lexicon, argv[1]);
-
+  std::cout << "\nPrinting graph in dot representation...\n";
+  std::ofstream dot_out2("lexicon.dot");
+  GraphLibrary::graph_as_dot(lexicon,dot_out2);
 }
