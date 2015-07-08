@@ -7,6 +7,10 @@
 #ifndef __DFS_HPP__
 #define __DFS_HPP__
 
+#include <map>
+
+#include "labeledgraph.hpp"
+
 namespace GraphLibrary {
   
   // Forward declaration of embedded class
