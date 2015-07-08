@@ -98,6 +98,6 @@ namespace GraphLibrary {
   }; // GraphBFSSearch
 
   } // namespace detail
-} // namespace MyCoolGraphLibrary
+} // namespace GraphLibrary
 
 #endif
