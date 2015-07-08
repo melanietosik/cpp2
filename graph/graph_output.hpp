@@ -4,8 +4,8 @@
 // TH, 6.7.15
 ////////////////////////////////////////////////////////////////////////////////
 
-#ifndef __GRAPHOUTPUT_HPP__
-#define __GRAPHOUTPUT_HPP__
+#ifndef __GRAPH_OUTPUT_HPP__
+#define __GRAPH_OUTPUT_HPP__
 
 #include <iostream>
 
