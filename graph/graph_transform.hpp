@@ -4,8 +4,8 @@
 // TH, 6.7.15
 ////////////////////////////////////////////////////////////////////////////////
 
-#ifndef __GRAPHTRANSFORM_HPP__
-#define __GRAPHTRANSFORM_HPP__
+#ifndef __GRAPH_TRANSFORM_HPP__
+#define __GRAPH_TRANSFORM_HPP__
 
 namespace GraphLibrary {
 
