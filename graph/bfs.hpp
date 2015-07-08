@@ -11,6 +11,8 @@
 #include <set>
 #include <queue>
 
+#include "labeledgraph.hpp"
+
 namespace GraphLibrary {
   
   // Forward declaration of embedded class
@@ -36,6 +38,7 @@ namespace GraphLibrary {
   }
   
   // We define a separate sub-namespace for the private definitions
+  
   namespace detail {
   /**
     @brief Breadth-first search class for graphs.
@@ -52,8 +55,8 @@ namespace GraphLibrary {
       @brief Constructor
       @param g the graph
     */
-    GraphBFSSearch(const LabeledDirectedGraph<GRAPHEDGE>& g) : the_graph(g) 
-    {}
+    GraphBFSSearch(const LabeledDirectedGraph<GRAPHEDGE>& g)
+    : the_graph(g) {}
     
     /** 
       @brief Start the breadth-first search at a given node and print 
@@ -63,46 +66,38 @@ namespace GraphLibrary {
     /// Function for BFS.
     /// Perform a breadth-first search for the given node.
     template<typename VISITOR>
-    void bfs(const Node& start_node, VISITOR& visitor)
+    void bfs(const Node& start, VISITOR& visitor)
     {
-      // Append start node to queue of nodes yet to visit
-    	ToVisit.push(start_node);
-      // While there are still unseen nodes...
-    	while (!ToVisit.empty()) {
-        // Current node is first node in the queue
-    		Node& current = ToVisit.front();
-        // Take first node from the queue
-    		ToVisit.pop();
-        // Ignore already visited nodes
-    		if (is_already_visited(current)) {
-    			continue;
-    		}
-        // Add the next "layer" of nodes to the queue
-    		for (auto e = the_graph[current].begin(); e != the_graph[current].end(); ++e) {
-    			ToVisit.push(e->target());
-    		}
-        // Process current node
-    		visitor(current);
-        // Current node done
-    		AlreadyVisited.insert(current);
-    	}
+      // For bfs, we maintain a queue (agenda, todo list) of nodes yet
+      // to be processed and a set containing those nodes already seen
+      // Initialise queue with start node
+      std::queue<Node> unprocessed;
+      std::set<Node> processed;
+      unprocessed.push(start);
+      
+      while (!unprocessed.empty()) {
+        // Pop node from queue and add it to processed set
+        Node n = unprocessed.front();
+        unprocessed.pop();
+        processed.insert(n);
+        // Call visitor
+        visitor(n);
+        // Get neighbours of n ('auto&' to be sure to use the reference)
+        auto& neighbours = the_graph[n];
+        for (auto e = neighbours.begin(); e != neighbours.end(); ++e) {
+          if (processed.find(e->target()) == processed.end()) {
+            // neighbour is yet unprocessed
+            unprocessed.push(e->target());
+          }
+        } // for e        
+      } // while
     }
-
-  private:
-	 std::queue<Node>                 ToVisit;
-	 std::unordered_set<Node>  AlreadyVisited;
-  	
-  /// Helper function; returns true if a node has already been visited
-  bool is_already_visited(Node& n) {
-  	return AlreadyVisited.find(n) != AlreadyVisited.end();
-  }
 
   private: // Member variables
     const LabeledDirectedGraph<GRAPHEDGE>& the_graph;
-  }; // GraphDFSSearch
+  }; // GraphBFSSearch
 
   } // namespace detail
-
-} // namespace GraphLibrary
+} // namespace MyCoolGraphLibrary
 
 #endif
