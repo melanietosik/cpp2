@@ -1,0 +1,35 @@
+digraph DoNotNameThisOnlyGraph {
+  graph [rankdir = LR, center = 1, orientation = Portrait]
+  node [fontsize = 14, shape = box, style = filled, color = blue, fontcolor = white]
+  edge [fontsize = 14 ];
+
+  "<>"
+  "<>" -> "c" [label = "c"]
+  "<>" -> "f" [label = "f"]
+  "<>" -> "d" [label = "d"]
+  "<>" -> "r" [label = "r"]
+  "c"
+  "c" -> "ca" [label = "a"]
+  "ca"
+  "ca" -> "cat" [label = "t"]
+  "cat"
+  "d"
+  "d" -> "do" [label = "o"]
+  "do"
+  "do" -> "dog" [label = "g"]
+  "dog"
+  "f"
+  "f" -> "fo" [label = "o"]
+  "f" -> "fr" [label = "r"]
+  "fo"
+  "fr"
+  "fr" -> "fro" [label = "o"]
+  "fro"
+  "fro" -> "frog" [label = "g"]
+  "frog"
+  "r"
+  "r" -> "ra" [label = "a"]
+  "ra"
+  "ra" -> "rat" [label = "t"]
+  "rat"
+}

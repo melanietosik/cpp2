@@ -1,0 +1,22 @@
+digraph DoNotNameThisOnlyGraph {
+  graph [rankdir = LR, center = 1, orientation = Portrait]
+  node [fontsize = 14, shape = box, style = filled, color = blue, fontcolor = white]
+  edge [fontsize = 14 ];
+
+  "coat"
+  "jacket"
+  "jacket" -> "coat" [label = "before"]
+  "shirt"
+  "shirt" -> "jacket" [label = "before"]
+  "shirt" -> "tie" [label = "before"]
+  "shoes"
+  "slip"
+  "slip" -> "trousers" [label = "before"]
+  "socks"
+  "socks" -> "shoes" [label = "before"]
+  "tie"
+  "trousers"
+  "trousers" -> "shoes" [label = "before"]
+  "undershirt"
+  "undershirt" -> "shirt" [label = "before"]
+}
