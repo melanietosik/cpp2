@@ -16,6 +16,8 @@
 #include "dfs.hpp"
 #include "bfs.hpp"
 #include "graph_output.hpp"
+#include "graph_reverse.hpp"
+
 
 // Import some graph data types
 using GraphLibrary::SimpleGraphEdge;
@@ -131,4 +133,11 @@ int main()
   std::cout << "\nPrinting graph in dot representation...\n";
   std::ofstream dot_out2("lexicon.dot");
   GraphLibrary::graph_as_dot(lexicon,dot_out2);
+
+  // And reversed
+  LabeledDirectedGraph<Edge> reversed_lexicon = GraphLibrary::reverse(lexicon);
+  std::cout << "\nPrint reversed graph in dot representation...\n";
+  std::ofstream dot_out3("reversed_lexicon.dot");
+  GraphLibrary::graph_as_dot(reversed_lexicon,dot_out3);
+
 }
