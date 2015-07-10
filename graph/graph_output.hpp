@@ -31,7 +31,7 @@ namespace GraphLibrary {
     /// Write dot prolog
     void prolog()
     {
-      out << "digraph Graph {" << std::endl;
+      out << "digraph DoNotNameThisOnlyGraph {" << std::endl;
       out << "  graph [rankdir = LR, center = 1, orientation = Portrait]" << std::endl;
       out << "  node [fontsize = 14, shape = box, style = filled, color = blue, fontcolor = white]" << std::endl;
       out << "  edge [fontsize = 14 ];" << std::endl << std::endl;
@@ -73,6 +73,6 @@ namespace GraphLibrary {
     graph_transform(g,dot_outputter);
   }
 
-} // namespace raphLibrary
+} // namespace GraphLibrary
 
 #endif
