@@ -9,16 +9,12 @@ sda - computes various string metrics (Hamming distance, Minimum Edit distance, 
 SYNOPSIS
 --------
 
-make
-
-make test
-
 ./bin/sda [-option] [sequence1] [sequence2]
 
 DESCRIPTION
 -----------
 
-### Edit distance
+### EDIT DISTANCE
 
 The edit distance, defined between two strings of not necessarily equal length, is the minimum number of edit operations needed to transform one string into the other. An edit operation is either a deletion, an insertion, or a substitution of a single character in either sequence. As a way of quantifying how dissimilar two strings (e.g., words or DNA), edit distances find manifold applications in Natural Language Processing (NLP) and bioinformatics.
 
@@ -37,7 +33,7 @@ See also:
 - [Levenshtein distance] [2] on Wikipedia
 - [Wagner-Fischer algorithm] [3] on Wikipedia
 
-### Sequence alignment
+### SEQUENCE ALIGNMENT
 
 See also: 
 
@@ -48,34 +44,33 @@ See also:
 OPTION
 ------
 
-*-m*   Compute minimum edit distance
+**-m** &nbsp;&nbsp;&nbsp;Compute minimum edit distance
 
-*-l*   Compute levenshtein distance
+**-l** &nbsp;&nbsp;&nbsp;Compute levenshtein distance
 
-*-a*   Compute global sequence alignment
+**-a** &nbsp;&nbsp;&nbsp;Compute global sequence alignment
 
-*-h*   Print help message
+**-h** &nbsp;&nbsp;&nbsp;Print help message
 
 INPUT
 -----
 
 Edit distances and sequence alignment are computed for any two given strings. If only one input string is provided, the second string is interpreted as the empty string.
 
-
 EXAMPLE
 -------
 
-**Input**
+**INPUT**
 
 insertion execution
 
-**Command**
+**COMMAND**
 
   $ ./bin/sda -m insertion execution
-  
+
   $ ./bin/sda -a insertion execution
     
-**Output**
+**OUTPUT**
 
   Minimum edit distance: 5
   
