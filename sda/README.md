@@ -20,11 +20,13 @@ DESCRIPTION
 
 ### EDIT DISTANCE
 
-The edit distance, defined between two strings of not necessarily equal length, is the minimum number of edit operations required to transform one string into the other. An edit operation is either a deletion, an insertion, or a substitution of a single character in either sequence. As a way of quantifying how dissimilar two strings are (e.g., words or DNA sequences), edit distances find manifold applications in [Natural Language Processing (NLP)](https://en.wikipedia.org/wiki/Natural_language_processing) and [bioinformatics](https://en.wikipedia.org/wiki/Bioinformatics).
+The edit distance, defined between two strings of not necessarily equal length, is the minimum number of **edit operations** required to transform one string into the other. An edit operation is either a _deletion_, an _insertion_, or a _substitution_ of a single character in either sequence.
+
+As a way of quantifying how dissimilar two strings are (e.g., words or DNA sequences), edit distances find applications in [Natural Language Processing (NLP)](https://en.wikipedia.org/wiki/Natural_language_processing) and [bioinformatics](https://en.wikipedia.org/wiki/Bioinformatics).
 
 Several definitions of edit distance exist, using different sets of string operations. One of the most common variants is called Levenshtein distance, named after the Soviet Russian computer scientist Vladimir Levenshtein. For example, here is the operation list for computing the Levenshtein distance between intention and execution (taken from Jurafsky and Martin (2009)):
 
-**intention** &rarr; [_delete i_] &rarr; **ntention** &rarr; [_substitute n by e_] &rarr; **etention** &rarr; [_substitute t by x_] &rarr; **exention** &rarr; [_insert u_] &rarr; **exenution** &rarr; [_substitute n by c_] &rarr; **execution**
+**intention** <br>&rarr; (_delete i_) <br>&rarr; **ntention** <br>&rarr; (_substitute n by e_) <br>&rarr; **etention** <br>&rarr; (_substitute t by x_) <br>&rarr; **exention** <br>&rarr; (_insert u_) <br>&rarr; **exenution** <br>&rarr; (_substitute n by c_) <br>&rarr; **execution**
 
 Originally, Levenshtein assigned a cost of 1 for each of three operations, defining the Minimum Edit distance. Thus, the minimum edit distance between intention and execution would be 5. Later on, he proposed an alternate version of his metric, assinging a cost of 1 to each deletion or insertion, and a cost of 2 for each substitution. Substitutions are really an insert with a delete, hence the double weight. Using this version, the Levenshtein distance between intention and execution is 8.
 
