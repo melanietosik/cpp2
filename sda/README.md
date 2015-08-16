@@ -32,7 +32,7 @@ Originally, Levenshtein assigned a cost of 1 for each of three edit operations, 
 
 Later on, he proposed an alternate version of his metric, assinging a cost of 1 to each deletion or insertion, and a cost of 2 for each substitution. Substitutions are really an insert with a delete, hence the double weight. Using this version, the **Levenshtein distance** between _intention_ and _execution_ is 8.
 
-If two strings are of equal length, the minimum edit distance is obtained by computing the **Hamming distance** &mdash; the number of character positions where they differ. For equal-length strings, the Hamming distance also functions as upper bound on the Levenshtein distance.
+If two strings are of equal length, the minimum edit distance is obtained by computing the **Hamming distance**, i.e. by counting the number of character positions where they differ. For equal-length strings, the Hamming distance also functions as upper bound on the Levenshtein distance.
 
 See also: 
 
