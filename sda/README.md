@@ -9,7 +9,11 @@ sda - computes various string metrics (Hamming distance, Minimum Edit distance, 
 SYNOPSIS
 --------
 
-./bin/sda [-option] [sequence1] [sequence2]
+$ make
+
+$ make test 
+
+$ ./bin/sda [-option] [sequence1] [sequence2]
 
 DESCRIPTION
 -----------
@@ -20,7 +24,7 @@ The edit distance, defined between two strings of not necessarily equal length, 
 
 Several definitions of edit distance exist, using different sets of string operations. One of the most common variants is called Levenshtein distance, named after the Soviet Russian computer scientist Vladimir Levenshtein. For example, here is the operation list for computing the Levenshtein distance between intention and execution (taken from Jurafsky and Martin (2009)):
 
-*intention* --[_delete i_]--> ntention --[substitute n by e]--> etention --[substitute t by x]--> exention --[insert u]--> exenution --[substitute n by c]--> execution
+**intention** &rarr; [_delete i_] &rarr; **ntention** &rarr; [_substitute n by e_] &rarr; **etention** &rarr; [_substitute t by x_] &rarr; **exention** &rarr; [_insert u_] &rarr; **exenution** &rarr; [_substitute n by c_] &rarr; **execution**
 
 Originally, Levenshtein assigned a cost of 1 for each of three operations, defining the Minimum Edit distance. Thus, the minimum edit distance between intention and execution would be 5. Later on, he proposed an alternate version of his metric, assinging a cost of 1 to each deletion or insertion, and a cost of 2 for each substitution. Substitutions are really an insert with a delete, hence the double weight. Using this version, the Levenshtein distance between intention and execution is 8.
 
@@ -44,24 +48,22 @@ See also:
 OPTION
 ------
 
-| col 3 is      | right-aligned |
-| col 2 is      | centered      |
-| zebra stripes | are neat      |
+**-m** &nbsp; Compute minimum edit distance
 
+**-l** &nbsp;&nbsp;&nbsp; Compute levenshtein distance
 
-
-**-m** &nbsp;&nbsp;&nbsp;Compute minimum edit distance
-
-**-l** &nbsp;&nbsp;&nbsp;Compute levenshtein distance
-
-**-a** &nbsp;&nbsp;&nbsp;Compute global sequence alignment
-
-**-h** &nbsp;&nbsp;&nbsp;Print help message
+**-a** &nbsp;&nbsp; Compute global sequence alignment
+ 
+**-h** &nbsp;&nbsp; Print help message
 
 INPUT
 -----
 
-Edit distances and sequence alignment are computed for any two given strings. If only one input string is provided, the second string is interpreted as the empty string.
+Edit distances and sequence alignment are computed for any two given strings.
+
+In theory, the strings can of arbitrary length. Practically, eventually you will probably run out of space for very long sequences.
+
+If only one input string is provided, the second string is interpreted as the empty string. 
 
 EXAMPLE
 -------
@@ -80,8 +82,8 @@ insertion execution
 
   Minimum edit distance: 5
   
-  Sequence A: inse-rtion
-  Sequence B: -execution
+  Sequence A: inse-rtion<br>
+  Sequence B: -execution<br>
   Maximum alignment score: 0
 
 TO DO
