@@ -10,19 +10,21 @@ SYNOPSIS
 --------
 
 make
+
 make test
+
 ./bin/sda [-option] [sequence1] [sequence2]
 
 DESCRIPTION
 -----------
 
-**Edit distance**
+### Edit distance
 
 The edit distance, defined between two strings of not necessarily equal length, is the minimum number of edit operations needed to transform one string into the other. An edit operation is either a deletion, an insertion, or a substitution of a single character in either sequence. As a way of quantifying how dissimilar two strings (e.g., words or DNA), edit distances find manifold applications in Natural Language Processing (NLP) and bioinformatics.
 
 Several definitions of edit distance exist, using different sets of string operations. One of the most common variants is called Levenshtein distance, named after the Soviet Russian computer scientist Vladimir Levenshtein. For example, here is the operation list for computing the Levenshtein distance between intention and execution (taken from Jurafsky and Martin (2009)):
 
-intention --[delete i]--> ntention --[substitute n by e]--> etention --[substitute t by x]--> exention --[insert u]--> exenution --[substitute n by c]--> execution
+*intention* --[_delete i_]--> ntention --[substitute n by e]--> etention --[substitute t by x]--> exention --[insert u]--> exenution --[substitute n by c]--> execution
 
 Originally, Levenshtein assigned a cost of 1 for each of three operations, defining the Minimum Edit distance. Thus, the minimum edit distance between intention and execution would be 5. Later on, he proposed an alternate version of his metric, assinging a cost of 1 to each deletion or insertion, and a cost of 2 for each substitution. Substitutions are really an insert with a delete, hence the double weight. Using this version, the Levenshtein distance between intention and execution is 8.
 
@@ -35,7 +37,7 @@ See also:
 - [Levenshtein distance] [2] on Wikipedia
 - [Wagner-Fischer algorithm] [3] on Wikipedia
 
-**Sequence alignment**
+### Sequence alignment
 
 See also: 
 
@@ -46,10 +48,13 @@ See also:
 OPTION
 ------
 
-* ** -m **   Compute minimum edit distance
-* ** -l **   Compute levenshtein distance
-* ** -a **   Compute global sequence alignment
-* ** -h **   Print help message
+*-m*   Compute minimum edit distance
+
+*-l*   Compute levenshtein distance
+
+*-a*   Compute global sequence alignment
+
+*-h*   Print help message
 
 INPUT
 -----
