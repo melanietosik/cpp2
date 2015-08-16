@@ -3,7 +3,7 @@
 // edit_distance.hpp
 //
 // Hamming Distance
-// Minimum Edit Distance
+// Minimum edit Distance
 // Levenshtein Distance
 //
 // Wagner-Fischer algorithm
@@ -29,15 +29,12 @@
 /// Define a matrix as a vector of vectors
 typedef std::vector<std::vector<size_t> > Matrix;
 
-
-// const
-
 /// Compute edit distances
 class EditDistance 
 {
 public:
   /** 
-    @brief Constructor: initialize member? variables
+    @brief Constructor: initialize member variables
     @param s1 First sequence 
     @param s2 Second sequence
   */
@@ -141,7 +138,10 @@ public:
     }
   }
 
-  // Print distance matrix to std::cout
+  /** 
+    @brief Print distance matrix to std::cout
+    @note Doesn't get called, but might come in handy
+  */
   void print_matrix () {
     // Iterate over distance matrix
     for (int i = 0; i <= n; i++) {
@@ -222,9 +222,7 @@ private: // Private functions
 
   /// If string is empty string, return length of the other string
   const int empty_string(const std::string &s1, const std::string &s2) {
-    // Return 0 : 1 + inline
-    if (n == 0) return m;
-    else return n;
+    return ( n == 0 ? m : n);
   }
 
 private: // Private attributes, accessible only from within the class

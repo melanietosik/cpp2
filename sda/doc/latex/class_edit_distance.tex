@@ -1,0 +1,281 @@
+\hypertarget{class_edit_distance}{\section{Edit\+Distance Class Reference}
+\label{class_edit_distance}\index{Edit\+Distance@{Edit\+Distance}}
+}
+
+
+Compute edit distances.  
+
+
+
+
+{\ttfamily \#include $<$edit\+\_\+distance.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_edit_distance_a28aea371a78e519dd05b00de2cf8b5b1}{Edit\+Distance} (const std\+::string \&s1, const std\+::string \&s2)
+\begin{DoxyCompactList}\small\item\em Constructor\+: initialize member variables. \end{DoxyCompactList}\item 
+int \hyperlink{class_edit_distance_a8ea0357bb6c97f575cc415cac08be837}{hamming\+\_\+distance} (const std\+::string \&s1, const std\+::string \&s2)
+\begin{DoxyCompactList}\small\item\em Compute Hamming distance between two given strings. \end{DoxyCompactList}\item 
+int \hyperlink{class_edit_distance_a1018bf9b68bf553682dbd9a03a68d4e3}{minimum\+\_\+edit\+\_\+distance} (const std\+::string \&s1, const std\+::string \&s2)
+\begin{DoxyCompactList}\small\item\em Compute minimum edit distance between two strings. \end{DoxyCompactList}\item 
+int \hyperlink{class_edit_distance_ae86ce77eb227f1aaf22cc465b69bf3bf}{levenshtein\+\_\+distance} (const std\+::string \&s1, const std\+::string \&s2)
+\begin{DoxyCompactList}\small\item\em Compute Levenshtein distance between two strings. \end{DoxyCompactList}\item 
+void \hyperlink{class_edit_distance_aa39cc1e96f89ff762a15bafb4133558a}{print\+\_\+matrix} ()
+\begin{DoxyCompactList}\small\item\em Print distance matrix to std\+::cout. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_edit_distance_a72c36c3a9eef6e44a4aaf5f122c9f522}{init\+\_\+matrix} ()
+\begin{DoxyCompactList}\small\item\em Initialize Wagner-\/\+Fischer algorithm. \end{DoxyCompactList}\item 
+int \hyperlink{class_edit_distance_a4cf2f4dbbd5def5f4e7d1032ac9e2b3f}{compute\+\_\+matrix} (int \hyperlink{class_edit_distance_a8d220afccf33fade211f6152651f7f27}{sub\+\_\+cost})
+\begin{DoxyCompactList}\small\item\em Calculate Wagner-\/\+Fischer algorithm. \end{DoxyCompactList}\item 
+const int \hyperlink{class_edit_distance_a427c3e65e49d0510aeb04c1d63e48e42}{empty\+\_\+string} (const std\+::string \&s1, const std\+::string \&s2)
+\begin{DoxyCompactList}\small\item\em If string is empty string, return length of the other string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{class_edit_distance_abdf167c583e1e7e8a205337aa03a03a0}{seq\+A}
+\item 
+std\+::string \hyperlink{class_edit_distance_a143b5f60e454356f78a4d57ddcb1601c}{seq\+B}
+\begin{DoxyCompactList}\small\item\em Sequence A; sequence B. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{class_edit_distance_a780d72a3f2627b83117412f5a0c90e3f}{n}
+\item 
+size\+\_\+t \hyperlink{class_edit_distance_a972107b21315045b5ae82338d16ab8dd}{m}
+\begin{DoxyCompactList}\small\item\em Length n of A; length m of B. \end{DoxyCompactList}\item 
+\hyperlink{edit__distance_8hpp_a0eb1dc942afe714c426a46f6ca30b86d}{Matrix} \hyperlink{class_edit_distance_a8a19bcc0fd8e09a7893b8b3e1552e481}{D}
+\begin{DoxyCompactList}\small\item\em Distance matrix D. \end{DoxyCompactList}\item 
+int \hyperlink{class_edit_distance_ad170899fef1703a5ad53ea24203d2cca}{dist}
+\item 
+int \hyperlink{class_edit_distance_a8d220afccf33fade211f6152651f7f27}{sub\+\_\+cost}
+\begin{DoxyCompactList}\small\item\em Edit distance; substituion cost. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Compute edit distances. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_edit_distance_a28aea371a78e519dd05b00de2cf8b5b1}{\index{Edit\+Distance@{Edit\+Distance}!Edit\+Distance@{Edit\+Distance}}
+\index{Edit\+Distance@{Edit\+Distance}!Edit\+Distance@{Edit\+Distance}}
+\subsubsection[{Edit\+Distance}]{\setlength{\rightskip}{0pt plus 5cm}Edit\+Distance\+::\+Edit\+Distance (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{s1, }
+\item[{const std\+::string \&}]{s2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_edit_distance_a28aea371a78e519dd05b00de2cf8b5b1}
+
+
+Constructor\+: initialize member variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s1} & First sequence \\
+\hline
+{\em s2} & Second sequence \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_edit_distance_a4cf2f4dbbd5def5f4e7d1032ac9e2b3f}{\index{Edit\+Distance@{Edit\+Distance}!compute\+\_\+matrix@{compute\+\_\+matrix}}
+\index{compute\+\_\+matrix@{compute\+\_\+matrix}!Edit\+Distance@{Edit\+Distance}}
+\subsubsection[{compute\+\_\+matrix}]{\setlength{\rightskip}{0pt plus 5cm}int Edit\+Distance\+::compute\+\_\+matrix (
+\begin{DoxyParamCaption}
+\item[{int}]{sub\+\_\+cost}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{class_edit_distance_a4cf2f4dbbd5def5f4e7d1032ac9e2b3f}
+
+
+Calculate Wagner-\/\+Fischer algorithm. 
+
+Iterative computation of edit distance using a full matrix
+
+\begin{DoxyNote}{Note}
+Algorithm can be applied to Minimum Edit and Levenshtein distance 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em sub\+\_\+cost} & Substitution cost \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\href{https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm}{\tt https\+://en.\+wikipedia.\+org/wiki/\+Wagner\%\+E2\%80\%93\+Fischer\+\_\+algorithm} 
+\end{DoxySeeAlso}
+\hypertarget{class_edit_distance_a427c3e65e49d0510aeb04c1d63e48e42}{\index{Edit\+Distance@{Edit\+Distance}!empty\+\_\+string@{empty\+\_\+string}}
+\index{empty\+\_\+string@{empty\+\_\+string}!Edit\+Distance@{Edit\+Distance}}
+\subsubsection[{empty\+\_\+string}]{\setlength{\rightskip}{0pt plus 5cm}const int Edit\+Distance\+::empty\+\_\+string (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{s1, }
+\item[{const std\+::string \&}]{s2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{class_edit_distance_a427c3e65e49d0510aeb04c1d63e48e42}
+
+
+If string is empty string, return length of the other string. 
+
+\hypertarget{class_edit_distance_a8ea0357bb6c97f575cc415cac08be837}{\index{Edit\+Distance@{Edit\+Distance}!hamming\+\_\+distance@{hamming\+\_\+distance}}
+\index{hamming\+\_\+distance@{hamming\+\_\+distance}!Edit\+Distance@{Edit\+Distance}}
+\subsubsection[{hamming\+\_\+distance}]{\setlength{\rightskip}{0pt plus 5cm}int Edit\+Distance\+::hamming\+\_\+distance (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{s1, }
+\item[{const std\+::string \&}]{s2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_edit_distance_a8ea0357bb6c97f575cc415cac08be837}
+
+
+Compute Hamming distance between two given strings. 
+
+The Hamming distance between two strings of equal length is the number of positions at which the corresponding characters are different
+
+
+\begin{DoxyParams}{Parameters}
+{\em s1} & First string \\
+\hline
+{\em s2} & Second string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Hamming distance between s1 and s2 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\href{https://en.wikipedia.org/wiki/Hamming_distance}{\tt https\+://en.\+wikipedia.\+org/wiki/\+Hamming\+\_\+distance} 
+\end{DoxySeeAlso}
+\hypertarget{class_edit_distance_a72c36c3a9eef6e44a4aaf5f122c9f522}{\index{Edit\+Distance@{Edit\+Distance}!init\+\_\+matrix@{init\+\_\+matrix}}
+\index{init\+\_\+matrix@{init\+\_\+matrix}!Edit\+Distance@{Edit\+Distance}}
+\subsubsection[{init\+\_\+matrix}]{\setlength{\rightskip}{0pt plus 5cm}void Edit\+Distance\+::init\+\_\+matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{class_edit_distance_a72c36c3a9eef6e44a4aaf5f122c9f522}
+
+
+Initialize Wagner-\/\+Fischer algorithm. 
+
+For two strings\+: A of length n B of length m
+
+We define D(i,j)\+: the edit distance between A\mbox{[}1..i\mbox{]} and B\mbox{[}1..j\mbox{]}, i.\+e. the edit distance between the first i characters in A and the first j characters in B
+
+Thus, the edit distance between A and B is D(n,m)
+
+\begin{DoxySeeAlso}{See also}
+\href{https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm}{\tt https\+://en.\+wikipedia.\+org/wiki/\+Wagner\%\+E2\%80\%93\+Fischer\+\_\+algorithm} 
+\end{DoxySeeAlso}
+\hypertarget{class_edit_distance_ae86ce77eb227f1aaf22cc465b69bf3bf}{\index{Edit\+Distance@{Edit\+Distance}!levenshtein\+\_\+distance@{levenshtein\+\_\+distance}}
+\index{levenshtein\+\_\+distance@{levenshtein\+\_\+distance}!Edit\+Distance@{Edit\+Distance}}
+\subsubsection[{levenshtein\+\_\+distance}]{\setlength{\rightskip}{0pt plus 5cm}int Edit\+Distance\+::levenshtein\+\_\+distance (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{s1, }
+\item[{const std\+::string \&}]{s2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_edit_distance_ae86ce77eb227f1aaf22cc465b69bf3bf}
+
+
+Compute Levenshtein distance between two strings. 
+
+The Levenshtein distance between two strings is the minimum number of single-\/character edits (insertion, deletion, substitution) required to transform one string into another
+
+
+\begin{DoxyParams}{Parameters}
+{\em s1} & First string \\
+\hline
+{\em s2} & Second string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Levenshtein distance between s1 and s2 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\href{https://en.wikipedia.org/wiki/Levenshtein_distance}{\tt https\+://en.\+wikipedia.\+org/wiki/\+Levenshtein\+\_\+distance} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+In this implementation, insertion and deletion have a cost of 1, and substitutions have a cost of 2 (one insertion, one deletion) 
+\end{DoxyNote}
+\hypertarget{class_edit_distance_a1018bf9b68bf553682dbd9a03a68d4e3}{\index{Edit\+Distance@{Edit\+Distance}!minimum\+\_\+edit\+\_\+distance@{minimum\+\_\+edit\+\_\+distance}}
+\index{minimum\+\_\+edit\+\_\+distance@{minimum\+\_\+edit\+\_\+distance}!Edit\+Distance@{Edit\+Distance}}
+\subsubsection[{minimum\+\_\+edit\+\_\+distance}]{\setlength{\rightskip}{0pt plus 5cm}int Edit\+Distance\+::minimum\+\_\+edit\+\_\+distance (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{s1, }
+\item[{const std\+::string \&}]{s2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_edit_distance_a1018bf9b68bf553682dbd9a03a68d4e3}
+
+
+Compute minimum edit distance between two strings. 
+
+The minimum edit distance between two strings is the minimum number of single-\/character edits (insertion, deletion, substitution) required to transform one string into another
+
+
+\begin{DoxyParams}{Parameters}
+{\em s1} & First string \\
+\hline
+{\em s2} & Second string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Minimum edit distance between s1 and s2 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\href{https://en.wikipedia.org/wiki/Edit_distance}{\tt https\+://en.\+wikipedia.\+org/wiki/\+Edit\+\_\+distance} 
+\end{DoxySeeAlso}
+\begin{DoxyNote}{Note}
+In this implementation, each editing operation has a cost of 1 
+\end{DoxyNote}
+\hypertarget{class_edit_distance_aa39cc1e96f89ff762a15bafb4133558a}{\index{Edit\+Distance@{Edit\+Distance}!print\+\_\+matrix@{print\+\_\+matrix}}
+\index{print\+\_\+matrix@{print\+\_\+matrix}!Edit\+Distance@{Edit\+Distance}}
+\subsubsection[{print\+\_\+matrix}]{\setlength{\rightskip}{0pt plus 5cm}void Edit\+Distance\+::print\+\_\+matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_edit_distance_aa39cc1e96f89ff762a15bafb4133558a}
+
+
+Print distance matrix to std\+::cout. 
+
+\begin{DoxyNote}{Note}
+Doesn't get called, but might come in handy 
+\end{DoxyNote}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_edit_distance_a8a19bcc0fd8e09a7893b8b3e1552e481}{\index{Edit\+Distance@{Edit\+Distance}!D@{D}}
+\index{D@{D}!Edit\+Distance@{Edit\+Distance}}
+\subsubsection[{D}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} Edit\+Distance\+::\+D\hspace{0.3cm}{\ttfamily [private]}}}\label{class_edit_distance_a8a19bcc0fd8e09a7893b8b3e1552e481}
+
+
+Distance matrix D. 
+
+\hypertarget{class_edit_distance_ad170899fef1703a5ad53ea24203d2cca}{\index{Edit\+Distance@{Edit\+Distance}!dist@{dist}}
+\index{dist@{dist}!Edit\+Distance@{Edit\+Distance}}
+\subsubsection[{dist}]{\setlength{\rightskip}{0pt plus 5cm}int Edit\+Distance\+::dist\hspace{0.3cm}{\ttfamily [private]}}}\label{class_edit_distance_ad170899fef1703a5ad53ea24203d2cca}
+\hypertarget{class_edit_distance_a972107b21315045b5ae82338d16ab8dd}{\index{Edit\+Distance@{Edit\+Distance}!m@{m}}
+\index{m@{m}!Edit\+Distance@{Edit\+Distance}}
+\subsubsection[{m}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t Edit\+Distance\+::m\hspace{0.3cm}{\ttfamily [private]}}}\label{class_edit_distance_a972107b21315045b5ae82338d16ab8dd}
+
+
+Length n of A; length m of B. 
+
+\hypertarget{class_edit_distance_a780d72a3f2627b83117412f5a0c90e3f}{\index{Edit\+Distance@{Edit\+Distance}!n@{n}}
+\index{n@{n}!Edit\+Distance@{Edit\+Distance}}
+\subsubsection[{n}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t Edit\+Distance\+::n\hspace{0.3cm}{\ttfamily [private]}}}\label{class_edit_distance_a780d72a3f2627b83117412f5a0c90e3f}
+\hypertarget{class_edit_distance_abdf167c583e1e7e8a205337aa03a03a0}{\index{Edit\+Distance@{Edit\+Distance}!seq\+A@{seq\+A}}
+\index{seq\+A@{seq\+A}!Edit\+Distance@{Edit\+Distance}}
+\subsubsection[{seq\+A}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Edit\+Distance\+::seq\+A\hspace{0.3cm}{\ttfamily [private]}}}\label{class_edit_distance_abdf167c583e1e7e8a205337aa03a03a0}
+\hypertarget{class_edit_distance_a143b5f60e454356f78a4d57ddcb1601c}{\index{Edit\+Distance@{Edit\+Distance}!seq\+B@{seq\+B}}
+\index{seq\+B@{seq\+B}!Edit\+Distance@{Edit\+Distance}}
+\subsubsection[{seq\+B}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Edit\+Distance\+::seq\+B\hspace{0.3cm}{\ttfamily [private]}}}\label{class_edit_distance_a143b5f60e454356f78a4d57ddcb1601c}
+
+
+Sequence A; sequence B. 
+
+\hypertarget{class_edit_distance_a8d220afccf33fade211f6152651f7f27}{\index{Edit\+Distance@{Edit\+Distance}!sub\+\_\+cost@{sub\+\_\+cost}}
+\index{sub\+\_\+cost@{sub\+\_\+cost}!Edit\+Distance@{Edit\+Distance}}
+\subsubsection[{sub\+\_\+cost}]{\setlength{\rightskip}{0pt plus 5cm}int Edit\+Distance\+::sub\+\_\+cost\hspace{0.3cm}{\ttfamily [private]}}}\label{class_edit_distance_a8d220afccf33fade211f6152651f7f27}
+
+
+Edit distance; substituion cost. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{edit__distance_8hpp}{edit\+\_\+distance.\+hpp}\end{DoxyCompactItemize}

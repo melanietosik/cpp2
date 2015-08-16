@@ -41,15 +41,15 @@ int main(int argc, char* argv[])
   /// display usage information and exit
   if (argc == 1 || argc == 2 || argc >= 5) {
     print_help(argv[0]);
-    // Aufpassen
     exit(1);
   }
   /// Use getopt() to get arguments with option
   while((tmp = getopt (argc, argv, "m:l:a:h")) != -1) {
-    // Auf 0 setzen
+    // Initialize input sequences
     std::string s1, s2;
-
-    // If 3 arguments are given, one string is empty string
+    s1 = "";
+    s2 = "";
+    // If 3 arguments are given, second string is empty string
     if (argc == 3 ) {
       s1 = argv[2];
       s2 = "";

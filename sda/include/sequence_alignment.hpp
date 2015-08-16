@@ -25,13 +25,12 @@
 /// Define a matrix as a vector of vectors
 typedef std::vector<std::vector<size_t> > Matrix;
 
-// doxygen!!
-// Compute global sequence alignment
+/// Compute global sequence alignment
 class NeedlemanWunsch
 {
 public:
   /** 
-    @brief Constructor: initialize member? variables
+    @brief Constructor: initialize member variables
     @param s1 First sequence 
     @param s2 Second sequence
   */
@@ -139,18 +138,21 @@ public:
     std::reverse(alignB.begin(), alignB.end());
   }
 
-  // // Print F matrix to std::cout
-  // void print_matrix () {
-  //   // Iterate over F matrix
-  //   for (int i = 0; i <= n; i++) {
-  //     for (int j = 0; j <= m; j++) {
-  //       // Display the current element 
-  //       std::cout << F[i][j] << "\t"; 
-  //     }
-  //   // Go to new line when the inner loop is done
-  //   std::cout << std::endl;
-  //   }
-  // }
+  /** 
+    @brief Print F matrix to std::cout
+    @note Doesn't get called, but might come in handy
+  */
+  void print_matrix () {
+    // Iterate over F matrix
+    for (int i = 0; i <= n; i++) {
+      for (int j = 0; j <= m; j++) {
+        // Display the current element 
+        std::cout << F[i][j] << "\t"; 
+      }
+    // Go to new line when the inner loop is done
+    std::cout << std::endl;
+    }
+  }
 
   // Print maximum alignment score and single best alignment
   void print_alignment () {
@@ -163,23 +165,21 @@ private: // Private functions
     
   /** 
     @brief Compute weighting scores
-    @param Position i
-    @param Position j
+    @param i position in A
+    @param j position in B
   */
-    // inline cinst retrn 0 : 1
-  int score(int i, int j) {
-    // If A[i] equals B[j]
-    // Return match score
-    if (seqA[i-1] == seqB[j-1]) return 1;
-   // Else return mismatch score
-    else return -1;
+  const int score(int i, int j) {
+    // If A[i] equals B[j], return match score
+    // Else return mismatch score
+    return (seqA[ i-1 ] == seqB[ j-1 ] ? 1 : -1);
   }
  
 private: // Private attributes, accessible only from within the class
 
   std::string seqA, seqB;     ///< Sequence A, sequence B
   std::string alignA, alignB; ///< Aligned sequence A, aligned sequence B
-  int n, m, gap;              ///< Length n of A, length m of B, gap penalty
+  int n, m;                   ///< Length n of A, length m of B
+  int gap;                    ///< Gap penalty
   Matrix F;                   ///< F matrix
   int max_score;              ///< Maximum alignment score
 

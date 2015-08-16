@@ -1,0 +1,219 @@
+\hypertarget{class_needleman_wunsch}{\section{Needleman\+Wunsch Class Reference}
+\label{class_needleman_wunsch}\index{Needleman\+Wunsch@{Needleman\+Wunsch}}
+}
+
+
+Compute global sequence alignment.  
+
+
+
+
+{\ttfamily \#include $<$sequence\+\_\+alignment.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_needleman_wunsch_aeae3f49e2d098cc38502f1120ce51125}{Needleman\+Wunsch} (const std\+::string \&s1, const std\+::string \&s2)
+\begin{DoxyCompactList}\small\item\em Constructor\+: initialize member variables. \end{DoxyCompactList}\item 
+void \hyperlink{class_needleman_wunsch_ab9d49487c7d5842605ee5a63618ed2b4}{compute\+\_\+matrix} ()
+\begin{DoxyCompactList}\small\item\em Compute F matrix. \end{DoxyCompactList}\item 
+void \hyperlink{class_needleman_wunsch_a8c2eb166792cb7df48d874389d359050}{trace\+\_\+back} ()
+\begin{DoxyCompactList}\small\item\em Compute alignment that gives score in F(n,m) \end{DoxyCompactList}\item 
+void \hyperlink{class_needleman_wunsch_aac43629688e294d9f5506c7fe21d5057}{print\+\_\+matrix} ()
+\begin{DoxyCompactList}\small\item\em Print F matrix to std\+::cout. \end{DoxyCompactList}\item 
+void \hyperlink{class_needleman_wunsch_ace01855dc95b71305e6551126dba0f66}{print\+\_\+alignment} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{class_needleman_wunsch_ab9c9f2364cc38cb97d7b4f8dca2ca228}{score} (int i, int j)
+\begin{DoxyCompactList}\small\item\em Compute weighting scores. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{class_needleman_wunsch_aeda77308a2f7866e36c4d1f518d53dcf}{seq\+A}
+\item 
+std\+::string \hyperlink{class_needleman_wunsch_a2da968f8712b2a7c69214be8bc09097b}{seq\+B}
+\begin{DoxyCompactList}\small\item\em Sequence A, sequence B. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{class_needleman_wunsch_a0c94eb05cd5e7c47a9fdde9b5685ad9d}{align\+A}
+\item 
+std\+::string \hyperlink{class_needleman_wunsch_ada9b7b807c02785439f0a85221352971}{align\+B}
+\begin{DoxyCompactList}\small\item\em Aligned sequence A, aligned sequence B. \end{DoxyCompactList}\item 
+int \hyperlink{class_needleman_wunsch_aad1e6ea335606069514970380d29b66c}{n}
+\item 
+int \hyperlink{class_needleman_wunsch_a57c16e0704f58fa1cb4c5caf77dd3224}{m}
+\begin{DoxyCompactList}\small\item\em Length n of A, length m of B. \end{DoxyCompactList}\item 
+int \hyperlink{class_needleman_wunsch_ac66a16f7d4a66493f552a241109f1368}{gap}
+\begin{DoxyCompactList}\small\item\em Gap penalty. \end{DoxyCompactList}\item 
+\hyperlink{edit__distance_8hpp_a0eb1dc942afe714c426a46f6ca30b86d}{Matrix} \hyperlink{class_needleman_wunsch_a1084aa9b30f526dcf688fc4b39f8584d}{F}
+\begin{DoxyCompactList}\small\item\em F matrix. \end{DoxyCompactList}\item 
+int \hyperlink{class_needleman_wunsch_a4424562e115a1ecb43648aaf4d40e90d}{max\+\_\+score}
+\begin{DoxyCompactList}\small\item\em Maximum alignment score. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Compute global sequence alignment. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_needleman_wunsch_aeae3f49e2d098cc38502f1120ce51125}{\index{Needleman\+Wunsch@{Needleman\+Wunsch}!Needleman\+Wunsch@{Needleman\+Wunsch}}
+\index{Needleman\+Wunsch@{Needleman\+Wunsch}!Needleman\+Wunsch@{Needleman\+Wunsch}}
+\subsubsection[{Needleman\+Wunsch}]{\setlength{\rightskip}{0pt plus 5cm}Needleman\+Wunsch\+::\+Needleman\+Wunsch (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{s1, }
+\item[{const std\+::string \&}]{s2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_needleman_wunsch_aeae3f49e2d098cc38502f1120ce51125}
+
+
+Constructor\+: initialize member variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s1} & First sequence \\
+\hline
+{\em s2} & Second sequence \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_needleman_wunsch_ab9d49487c7d5842605ee5a63618ed2b4}{\index{Needleman\+Wunsch@{Needleman\+Wunsch}!compute\+\_\+matrix@{compute\+\_\+matrix}}
+\index{compute\+\_\+matrix@{compute\+\_\+matrix}!Needleman\+Wunsch@{Needleman\+Wunsch}}
+\subsubsection[{compute\+\_\+matrix}]{\setlength{\rightskip}{0pt plus 5cm}void Needleman\+Wunsch\+::compute\+\_\+matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_needleman_wunsch_ab9d49487c7d5842605ee5a63618ed2b4}
+
+
+Compute F matrix. 
+
+For two strings\+: A of length n B of length m
+
+We define F(i,j)\+: the optimal score for the alignment of the first i = 0..n characters in A and the first j = 0..m characters in B
+
+Once the F matrix is computed, the entry F(n,m) gives the maximum score among all possible alignments
+
+\begin{DoxySeeAlso}{See also}
+\href{https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm}{\tt https\+://en.\+wikipedia.\+org/wiki/\+Needleman\%\+E2\%80\%93\+Wunsch\+\_\+algorithm} 
+\end{DoxySeeAlso}
+\hypertarget{class_needleman_wunsch_ace01855dc95b71305e6551126dba0f66}{\index{Needleman\+Wunsch@{Needleman\+Wunsch}!print\+\_\+alignment@{print\+\_\+alignment}}
+\index{print\+\_\+alignment@{print\+\_\+alignment}!Needleman\+Wunsch@{Needleman\+Wunsch}}
+\subsubsection[{print\+\_\+alignment}]{\setlength{\rightskip}{0pt plus 5cm}void Needleman\+Wunsch\+::print\+\_\+alignment (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_needleman_wunsch_ace01855dc95b71305e6551126dba0f66}
+\hypertarget{class_needleman_wunsch_aac43629688e294d9f5506c7fe21d5057}{\index{Needleman\+Wunsch@{Needleman\+Wunsch}!print\+\_\+matrix@{print\+\_\+matrix}}
+\index{print\+\_\+matrix@{print\+\_\+matrix}!Needleman\+Wunsch@{Needleman\+Wunsch}}
+\subsubsection[{print\+\_\+matrix}]{\setlength{\rightskip}{0pt plus 5cm}void Needleman\+Wunsch\+::print\+\_\+matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_needleman_wunsch_aac43629688e294d9f5506c7fe21d5057}
+
+
+Print F matrix to std\+::cout. 
+
+\begin{DoxyNote}{Note}
+Doesn't get called, but might come in handy 
+\end{DoxyNote}
+\hypertarget{class_needleman_wunsch_ab9c9f2364cc38cb97d7b4f8dca2ca228}{\index{Needleman\+Wunsch@{Needleman\+Wunsch}!score@{score}}
+\index{score@{score}!Needleman\+Wunsch@{Needleman\+Wunsch}}
+\subsubsection[{score}]{\setlength{\rightskip}{0pt plus 5cm}const int Needleman\+Wunsch\+::score (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{int}]{j}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}}\label{class_needleman_wunsch_ab9c9f2364cc38cb97d7b4f8dca2ca228}
+
+
+Compute weighting scores. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & position in A \\
+\hline
+{\em j} & position in B \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_needleman_wunsch_a8c2eb166792cb7df48d874389d359050}{\index{Needleman\+Wunsch@{Needleman\+Wunsch}!trace\+\_\+back@{trace\+\_\+back}}
+\index{trace\+\_\+back@{trace\+\_\+back}!Needleman\+Wunsch@{Needleman\+Wunsch}}
+\subsubsection[{trace\+\_\+back}]{\setlength{\rightskip}{0pt plus 5cm}void Needleman\+Wunsch\+::trace\+\_\+back (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_needleman_wunsch_a8c2eb166792cb7df48d874389d359050}
+
+
+Compute alignment that gives score in F(n,m) 
+
+To compute an alignment that gives score in F(n,m), start from the bottom right cell, and compare the value with the three possible sources (match, insert, and delete ) to see which it came from
+
+\begin{DoxyNote}{Note}
+There can be alternative optimal alignments 
+
+In this implementation, one a single best alignment is computed 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\href{https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm}{\tt https\+://en.\+wikipedia.\+org/wiki/\+Needleman\%\+E2\%80\%93\+Wunsch\+\_\+algorithm} 
+\end{DoxySeeAlso}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_needleman_wunsch_a0c94eb05cd5e7c47a9fdde9b5685ad9d}{\index{Needleman\+Wunsch@{Needleman\+Wunsch}!align\+A@{align\+A}}
+\index{align\+A@{align\+A}!Needleman\+Wunsch@{Needleman\+Wunsch}}
+\subsubsection[{align\+A}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Needleman\+Wunsch\+::align\+A\hspace{0.3cm}{\ttfamily [private]}}}\label{class_needleman_wunsch_a0c94eb05cd5e7c47a9fdde9b5685ad9d}
+\hypertarget{class_needleman_wunsch_ada9b7b807c02785439f0a85221352971}{\index{Needleman\+Wunsch@{Needleman\+Wunsch}!align\+B@{align\+B}}
+\index{align\+B@{align\+B}!Needleman\+Wunsch@{Needleman\+Wunsch}}
+\subsubsection[{align\+B}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Needleman\+Wunsch\+::align\+B\hspace{0.3cm}{\ttfamily [private]}}}\label{class_needleman_wunsch_ada9b7b807c02785439f0a85221352971}
+
+
+Aligned sequence A, aligned sequence B. 
+
+\hypertarget{class_needleman_wunsch_a1084aa9b30f526dcf688fc4b39f8584d}{\index{Needleman\+Wunsch@{Needleman\+Wunsch}!F@{F}}
+\index{F@{F}!Needleman\+Wunsch@{Needleman\+Wunsch}}
+\subsubsection[{F}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} Needleman\+Wunsch\+::\+F\hspace{0.3cm}{\ttfamily [private]}}}\label{class_needleman_wunsch_a1084aa9b30f526dcf688fc4b39f8584d}
+
+
+F matrix. 
+
+\hypertarget{class_needleman_wunsch_ac66a16f7d4a66493f552a241109f1368}{\index{Needleman\+Wunsch@{Needleman\+Wunsch}!gap@{gap}}
+\index{gap@{gap}!Needleman\+Wunsch@{Needleman\+Wunsch}}
+\subsubsection[{gap}]{\setlength{\rightskip}{0pt plus 5cm}int Needleman\+Wunsch\+::gap\hspace{0.3cm}{\ttfamily [private]}}}\label{class_needleman_wunsch_ac66a16f7d4a66493f552a241109f1368}
+
+
+Gap penalty. 
+
+\hypertarget{class_needleman_wunsch_a57c16e0704f58fa1cb4c5caf77dd3224}{\index{Needleman\+Wunsch@{Needleman\+Wunsch}!m@{m}}
+\index{m@{m}!Needleman\+Wunsch@{Needleman\+Wunsch}}
+\subsubsection[{m}]{\setlength{\rightskip}{0pt plus 5cm}int Needleman\+Wunsch\+::m\hspace{0.3cm}{\ttfamily [private]}}}\label{class_needleman_wunsch_a57c16e0704f58fa1cb4c5caf77dd3224}
+
+
+Length n of A, length m of B. 
+
+\hypertarget{class_needleman_wunsch_a4424562e115a1ecb43648aaf4d40e90d}{\index{Needleman\+Wunsch@{Needleman\+Wunsch}!max\+\_\+score@{max\+\_\+score}}
+\index{max\+\_\+score@{max\+\_\+score}!Needleman\+Wunsch@{Needleman\+Wunsch}}
+\subsubsection[{max\+\_\+score}]{\setlength{\rightskip}{0pt plus 5cm}int Needleman\+Wunsch\+::max\+\_\+score\hspace{0.3cm}{\ttfamily [private]}}}\label{class_needleman_wunsch_a4424562e115a1ecb43648aaf4d40e90d}
+
+
+Maximum alignment score. 
+
+\hypertarget{class_needleman_wunsch_aad1e6ea335606069514970380d29b66c}{\index{Needleman\+Wunsch@{Needleman\+Wunsch}!n@{n}}
+\index{n@{n}!Needleman\+Wunsch@{Needleman\+Wunsch}}
+\subsubsection[{n}]{\setlength{\rightskip}{0pt plus 5cm}int Needleman\+Wunsch\+::n\hspace{0.3cm}{\ttfamily [private]}}}\label{class_needleman_wunsch_aad1e6ea335606069514970380d29b66c}
+\hypertarget{class_needleman_wunsch_aeda77308a2f7866e36c4d1f518d53dcf}{\index{Needleman\+Wunsch@{Needleman\+Wunsch}!seq\+A@{seq\+A}}
+\index{seq\+A@{seq\+A}!Needleman\+Wunsch@{Needleman\+Wunsch}}
+\subsubsection[{seq\+A}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Needleman\+Wunsch\+::seq\+A\hspace{0.3cm}{\ttfamily [private]}}}\label{class_needleman_wunsch_aeda77308a2f7866e36c4d1f518d53dcf}
+\hypertarget{class_needleman_wunsch_a2da968f8712b2a7c69214be8bc09097b}{\index{Needleman\+Wunsch@{Needleman\+Wunsch}!seq\+B@{seq\+B}}
+\index{seq\+B@{seq\+B}!Needleman\+Wunsch@{Needleman\+Wunsch}}
+\subsubsection[{seq\+B}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Needleman\+Wunsch\+::seq\+B\hspace{0.3cm}{\ttfamily [private]}}}\label{class_needleman_wunsch_a2da968f8712b2a7c69214be8bc09097b}
+
+
+Sequence A, sequence B. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{sequence__alignment_8hpp}{sequence\+\_\+alignment.\+hpp}\end{DoxyCompactItemize}
