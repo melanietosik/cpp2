@@ -72,6 +72,7 @@ insertion execution
 **Command**
 
   $ ./bin/sda -m insertion execution
+  
   $ ./bin/sda -a insertion execution
     
 **Output**
