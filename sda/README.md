@@ -22,7 +22,9 @@ DESCRIPTION
 
 The edit distance, defined between two strings of not necessarily equal length, is the minimum number of **edit operations** required to transform one string into the other. An edit operation is either a _deletion_, an _insertion_, or a _substitution_ of a single character in either sequence.
 
-As a way of quantifying how dissimilar two strings are (e.g., words or DNA sequences), edit distances find applications in [Natural Language Processing (NLP)](https://en.wikipedia.org/wiki/Natural_language_processing) and [bioinformatics](https://en.wikipedia.org/wiki/Bioinformatics). While several definitions of edit distance exist, one of the most common variants is called **Levenshtein distance**, named after Vladimir Levenshtein. For example, here is the operation list for computing the **Levenshtein distance** between _intention_ and _execution_ (taken from Jurafsky and Martin (2009)):
+As a way of quantifying how dissimilar two strings are (e.g., words or DNA sequences), edit distances find applications in [Natural Language Processing (NLP)](https://en.wikipedia.org/wiki/Natural_language_processing) and [bioinformatics](https://en.wikipedia.org/wiki/Bioinformatics). While several definitions of edit distance exist, one of the most common variants is called **Levenshtein distance**, named after Vladimir Levenshtein.
+
+For example, here is the operation list for computing the Levenshtein distance between _intention_ and _execution_ (taken from Jurafsky and Martin (2009)):
 
 **intention** <br>&rarr; (_delete i_) <br>&rarr; **ntention** <br>&rarr; (_substitute n by e_) <br>&rarr; **etention** <br>&rarr; (_substitute t by x_) <br>&rarr; **exention** <br>&rarr; (_insert u_) <br>&rarr; **exenution** <br>&rarr; (_substitute n by c_) <br>&rarr; **execution**
 
