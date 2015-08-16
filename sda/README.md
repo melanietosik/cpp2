@@ -9,14 +9,14 @@ sda - computes various string metrics (Hamming distance, Minimum Edit distance, 
 SYNOPSIS
 --------
 
-* make
-* make test
-* ./bin/sda [-option] [sequence1] [sequence2]
+$ make
+$ make test
+$ ./bin/sda [-option] [sequence1] [sequence2]
 
 DESCRIPTION
 -----------
 
-** Edit distance **
+** EDIT DISTANCE **
 
 The edit distance, defined between two strings of not necessarily equal length, is the minimum number of edit operations needed to transform one string into the other. An edit operation is either a deletion, an insertion, or a substitution of a single character in either sequence. As a way of quantifying how dissimilar two strings (e.g., words or DNA), edit distances find manifold applications in Natural Language Processing (NLP) and bioinformatics.
 
