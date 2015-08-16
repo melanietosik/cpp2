@@ -44,6 +44,12 @@ See also:
 OPTION
 ------
 
+| col 3 is      | right-aligned |
+| col 2 is      | centered      |
+| zebra stripes | are neat      |
+
+
+
 **-m** &nbsp;&nbsp;&nbsp;Compute minimum edit distance
 
 **-l** &nbsp;&nbsp;&nbsp;Compute levenshtein distance
