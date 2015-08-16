@@ -4,7 +4,7 @@ Edit Distance and Sequence Alignment
 NAME
 ----
 
-sda - computes various string metrics (Hamming distance, Minimum Edit distance, Levenshtein distance) and optimal global sequence alignment
+sda - Computes various string metrics (Hamming distance, Minimum Edit distance, Levenshtein distance) and optimal global sequence alignment
 
 SYNOPSIS
 --------
@@ -20,7 +20,7 @@ DESCRIPTION
 
 ### EDIT DISTANCE
 
-The edit distance, defined between two strings of not necessarily equal length, is the minimum number of edit operations needed to transform one string into the other. An edit operation is either a deletion, an insertion, or a substitution of a single character in either sequence. As a way of quantifying how dissimilar two strings (e.g., words or DNA), edit distances find manifold applications in Natural Language Processing (NLP) and bioinformatics.
+The edit distance, defined between two strings of not necessarily equal length, is the minimum number of edit operations required to transform one string into the other. An edit operation is either a deletion, an insertion, or a substitution of a single character in either sequence. As a way of quantifying how dissimilar two strings are (e.g., words or DNA sequences), edit distances find manifold applications in [Natural Language Processing (NLP)](https://en.wikipedia.org/wiki/Natural_language_processing) and [bioinformatics](https://en.wikipedia.org/wiki/Bioinformatics).
 
 Several definitions of edit distance exist, using different sets of string operations. One of the most common variants is called Levenshtein distance, named after the Soviet Russian computer scientist Vladimir Levenshtein. For example, here is the operation list for computing the Levenshtein distance between intention and execution (taken from Jurafsky and Martin (2009)):
 
