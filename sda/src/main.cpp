@@ -27,7 +27,7 @@
 void print_help(char *p) {
   std::cout << "Usage:      " << "./" << p << " [-option] [sequence1] [sequence2]" << std::endl;
   std::cout << "Option:     " << "-m  Compute minimum edit distance" << std::endl;
-  std::cout << "            " << "-l  Compute levenshtein distance" << std::endl;
+  std::cout << "            " << "-l  Compute Levenshtein distance" << std::endl;
   std::cout << "            " << "-a  Compute global sequence alignment" << std::endl;
   std::cout << "            " << "-h  Print help message" << std::endl;
   std::cout << "Example:    " << "./" << p << " -l insertion execution" << std::endl;
