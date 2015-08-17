@@ -30,7 +30,7 @@ For example, here is the operation list for computing the **Levenshtein distance
 
 Originally, Levenshtein assigned a cost of 1 for each of three operations, defining the **minimum edit distance**. Thus, the minimum edit distance between _intention_ and _execution_ is 5.
 
-Later on, he proposed an alternate version of his metric, assinging a cost of 1 to each deletion or insertion, and a cost of 2 for each substitution. Substitutions are really an insert with a delete, hence the double weight. Using this version, the **Levenshtein distance** between _intention_ and _execution_ is 8.
+Later on, he proposed an alternate version of his metric, assigning a cost of 1 to each deletion or insertion, and a cost of 2 for each substitution. Substitutions are really an insert with a delete, hence the double weight. Using this version, the **Levenshtein distance** between _intention_ and _execution_ is 8.
 
 To compute the edit distances, the **Wagner-Fischer algorithm** is implemented. As an instance of _dynamic programming_, it applies the typical dynamic programming matrix to compute the distance between two full strings by combining the distances between all prefixes of the first and second string. After flood filling the matrix, the edit distance between the input strings can be found in the last cell computed.
 
@@ -52,7 +52,7 @@ Generally, there are two classes of computational approaches to sequence alignme
 
 One global alignment technique, the **Needleman–Wunsch algorithm**, is implemented here. Similar to the Wagner-Fischer algorithm, it uses a _substitution matrix to assign scores_ to amino-acid matches or mismatches, and a gap penalty for matching an amino acid in one sequence to a gap in the other. (A common extension to the standard linear gap cost is the usage of two different gap penalties for opening a gap and for extending a gap. By setting the former much larger than the latter, the number of gaps in an alignment can be reduced and residues and gaps are kept together, which typically makes more sense biologically.) While a weighted scoring matrix for DNA and RNA alignments may be used, here they are simply assigned a **positive match score** (+1), a **negative mismatch score** (-1), and a **negative gap penalty** (-1).
 
-To find the alignment with the highest score, an **F matrix** is allocated. The entry in row _i_ and column _j_ is denoted here by F[_i_,_j_]. There is one row for each character in _sequence A_, and one column for each character in _sequence B_. Following the [priciple of optimality](https://en.wikipedia.org/wiki/Bellman_equation#Bellman.27s_Principle_of_Optimality), as the algorithm progresses, F[_i_,_j_] will be assigned the optimal score for the alignment of the first _i = 0..n_ characters in _A_ and the first _j = 0..m_ characters in _B_.
+To find the alignment with the highest score, an **F matrix** is allocated. The entry in row _i_ and column _j_ is denoted here by F[_i_,_j_]. There is one row for each character in _sequence A_, and one column for each character in _sequence B_. Following the [principle of optimality](https://en.wikipedia.org/wiki/Bellman_equation#Bellman.27s_Principle_of_Optimality), as the algorithm progresses, F[_i_,_j_] will be assigned the optimal score for the alignment of the first _i = 0..n_ characters in _A_ and the first _j = 0..m_ characters in _B_.
 
 Once the F matrix is computed, the entry F(_n_,_m_) gives the **maximum score** among all possible alignments. To compute one global alignment that actually gives this score, we can _trace back to the original cell_ to obtain the path for the best alignment. Note that there can be multiple best alignments; here we show just one.
 
@@ -69,7 +69,7 @@ OPTION
 
 **-m** &nbsp; Compute minimum edit distance
 
-**-l** &nbsp;&nbsp;&nbsp; Compute levenshtein distance
+**-l** &nbsp;&nbsp;&nbsp; Compute Levenshtein distance
 
 **-a** &nbsp;&nbsp; Compute global sequence alignment
  
