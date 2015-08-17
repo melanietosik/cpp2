@@ -4,7 +4,7 @@ Edit Distance and Sequence Alignment
 NAME
 ----
 
-sda - Computes various **string metrics** (_Hamming distance_, _minimum edit distance_, _Levenshtein distance)_ and optimal **global sequence alignment**
+sda - Computes various _string metrics_ (Hamming distance, minimum edit distance, Levenshtein distance) and optimal _global sequence alignment_
 
 SYNOPSIS
 --------
@@ -32,9 +32,9 @@ Originally, Levenshtein assigned a cost of 1 for each of three operations, defin
 
 Later on, he proposed an alternate version of his metric, assinging a cost of 1 to each deletion or insertion, and a cost of 2 for each substitution. Substitutions are really an insert with a delete, hence the double weight. Using this version, the **Levenshtein distance** between _intention_ and _execution_ is 8.
 
-To compute the edit distances, the **Wagner-Fischer algorithm** is implemented. As an instance of dynamic programming, it applies the typical dynamic programming matrix to compute the distance between two full strings by combining the distances between all prefixes of the first and second string. After flood filling the matrix, the edit distance between the input strings is the last value computed.
+To compute the edit distances, the **Wagner-Fischer algorithm** is implemented. As an instance of _dynamic programming_, it applies the typical dynamic programming matrix to compute the distance between two full strings by combining the distances between all prefixes of the first and second string. After flood filling the matrix, the edit distance between the input strings can be found in the last cell computed.
 
-If two strings are of equal length, the minimum edit distance is obtained by computing the **Hamming distance**. i.e. the number of character positions where they differ. For equal-length strings, the Hamming distance also functions as upper bound on the Levenshtein distance.
+If two strings are of equal length, the minimum edit distance is obtained by computing the **Hamming distance**, i.e. the number of character positions where they differ. For equal-length strings, the Hamming distance also functions as upper bound on the Levenshtein distance.
 
 See also: 
 
@@ -50,13 +50,13 @@ In bioinformatics, sequence alignment is a way of arranging the sequences of DNA
 
 Generally, there are two classes of computational approaches to sequence alignment: **global alignments** and **local alignments**. While global alignments necessarily span the entire length of all query sequences, local alignments identify regions of similarity within long sequences that are often widely divergent overall.
 
-One global alignment technique, the **Needleman–Wunsch algorithm**, is implemented here. Similar to the Wagner-Fischer algorithm, it uses a substitution matrix to assign scores to amino-acid matches or mismatches, and a gap penalty for matching an amino acid in one sequence to a gap in the other. (A common extension to the standard linear gap costs is the usage of two different gap penalties for opening a gap and for extending a gap. By setting the former much larger than the latter, the number of gaps in an alignment can be reduced and residues and gaps are kept together, which typically makes more biological sense.) While a weighted scoring matrix for DNA and RNA alignments may be used, here they are simply assigned a **positive match score** (+1), a **negative mismatch score** (-1), and a **negative gap penalty** (-1).
+One global alignment technique, the **Needleman–Wunsch algorithm**, is implemented here. Similar to the Wagner-Fischer algorithm, it uses a substitution matrix to assign scores to amino-acid matches or mismatches, and a gap penalty for matching an amino acid in one sequence to a gap in the other. (A common extension to the standard linear gap cost is the usage of two different gap penalties for opening a gap and for extending a gap. By setting the former much larger than the latter, the number of gaps in an alignment can be reduced and residues and gaps are kept together, which typically makes more sense biologically.) While a weighted scoring matrix for DNA and RNA alignments may be used, here they are simply assigned a **positive match score** (+1), a **negative mismatch score** (-1), and a **negative gap penalty** (-1).
 
-To find the alignment with the highest score, an F matrix is allocated. The entry in row i and column j is denoted here by F(i,j). There is one row for each character in sequence A, and one column for each character in sequence B. Following the [priciple of optimality](https://en.wikipedia.org/wiki/Bellman_equation#Bellman.27s_Principle_of_Optimality), as the algorithm progresses, F(i,j) will be assigned the optimal score for the alignment of the first i = 0..n characters in A and the first j = 0..m characters in B.
+To find the alignment with the highest score, an **F matrix** is allocated. The entry in row _i_ and column _j_ is denoted here by F[i,j]. There is one row for each character in _sequence A_, and one column for each character in _sequence B_. Following the [priciple of optimality](https://en.wikipedia.org/wiki/Bellman_equation#Bellman.27s_Principle_of_Optimality), as the algorithm progresses, F[i,j] will be assigned the optimal score for the alignment of the first _i = 0..n_ characters in A and the first _j = 0..m_ characters in B.
 
-Once the F matrix is computed, the entry F(n,m) gives the maximum score among all possible alignments. To compute one global alignment that actually gives this score, we can trace back to the original cell to obtain the path for the best alignment. Note that there can be multiple equally best alignments; here we show just one.
+Once the F matrix is computed, the entry F(n,m) gives the **maximum score** among all possible alignments. To compute one global alignment that actually gives this score, we can _trace back to the original cell_ to obtain the path for the best alignment. Note that there can be multiple equally best alignments; here we show just one.
 
-Even though dynamic programming can be extended to more than two sequences and is guaranteed to find the optimal global alignment, it is prohibitively slow for a large numbers of sequences or extremely long sequences. The alternative are efficient, heuristic algorithms or probabilistic methods designed for large-scale database search, that do not guarantee to find best matches, or semiglobal, hybrid methods.
+Even though dynamic programming can be extended to more than two sequences and is guaranteed to find the optimal global alignment, it is _prohibitively slow for a large numbers of sequences or extremely long sequences_. The alternative are efficient, heuristic algorithms or probabilistic methods designed for large-scale database search, that do not guarantee to find best matches, or semiglobal, hybrid methods.
 
 See also: 
 
