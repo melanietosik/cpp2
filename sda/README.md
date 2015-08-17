@@ -4,7 +4,7 @@ Edit Distance and Sequence Alignment
 NAME
 ----
 
-sda - Computes various _string metrics_ (Hamming distance, minimum edit distance, Levenshtein distance) and optimal _global sequence alignment_
+sda - Computes various string metrics (Hamming distance, minimum edit distance, Levenshtein distance) and optimal global sequence alignment
 
 SYNOPSIS
 --------
