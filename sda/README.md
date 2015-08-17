@@ -4,7 +4,7 @@ Edit Distance and Sequence Alignment
 NAME
 ----
 
-sda - computes various string metrics (Hamming distance, minimum edit distance, Levenshtein distance) and optimal global sequence alignment
+sda - Computes various **string metrics** (_Hamming distance_, _minimum edit distance_, _Levenshtein distance)_ and optimal **global sequence alignment**
 
 SYNOPSIS
 --------
@@ -22,17 +22,19 @@ DESCRIPTION
 
 The edit distance, defined between two strings of not necessarily equal length, is the minimum number of **edit operations** required to transform one string into the other. An edit operation is either a _deletion_, an _insertion_, or a _substitution_ of a single character in either sequence.
 
-As a way of quantifying how dissimilar two strings are (e.g., words or DNA sequences), edit distances find applications in [Natural Language Processing (NLP)](https://en.wikipedia.org/wiki/Natural_language_processing) and [bioinformatics](https://en.wikipedia.org/wiki/Bioinformatics). While several definitions of edit distance exist, one of the most common variants is called **Levenshtein distance**, named after Vladimir Levenshtein.
+As a way of quantifying how dissimilar two strings are (e.g., words or DNA sequences), edit distances find applications in [Natural Language Processing (NLP)](https://en.wikipedia.org/wiki/Natural_language_processing) and [bioinformatics](https://en.wikipedia.org/wiki/Bioinformatics). While several definitions of edit distance exist, one of the most common variants is called **Levenshtein distance**, named after Vladimir Levenshtein. 
 
-For example, here is the operation list for computing the Levenshtein distance between _intention_ and _execution_ (taken from Jurafsky and Martin (2009)):
+For example, here is the operation list for computing the **Levenshtein distance** between _intention_ and _execution_ (taken from Jurafsky and Martin (2009)):
 
 **intention** <br>&rarr; (_delete i_) <br>&rarr; **ntention** <br>&rarr; (_substitute n by e_) <br>&rarr; **etention** <br>&rarr; (_substitute t by x_) <br>&rarr; **exention** <br>&rarr; (_insert u_) <br>&rarr; **exenution** <br>&rarr; (_substitute n by c_) <br>&rarr; **execution**
 
-Originally, Levenshtein assigned a cost of 1 for each of three edit operations, defining the **minimum edit distance**. Thus, the minimum edit distance between _intention_ and _execution_ is 5.
+Originally, Levenshtein assigned a cost of 1 for each of three operations, defining the **minimum edit distance**. Thus, the minimum edit distance between _intention_ and _execution_ is 5.
 
 Later on, he proposed an alternate version of his metric, assinging a cost of 1 to each deletion or insertion, and a cost of 2 for each substitution. Substitutions are really an insert with a delete, hence the double weight. Using this version, the **Levenshtein distance** between _intention_ and _execution_ is 8.
 
-If two strings are of equal length, the minimum edit distance is obtained by computing the **Hamming distance**, i.e. by counting the number of character positions where they differ. For equal-length strings, the Hamming distance also functions as upper bound on the Levenshtein distance.
+To compute the edit distances, the **Wagner-Fischer algorithm** is implemented. As an instance of dynamic programming, it applies the typical dynamic programming matrix to compute the distance between two full strings by combining the distances between all prefixes of the first and second string. After flood filling the matrix, the edit distance between the input strings is the last value computed.
+
+If two strings are of equal length, the minimum edit distance is obtained by computing the **Hamming distance**. i.e. the number of character positions where they differ. For equal-length strings, the Hamming distance also functions as upper bound on the Levenshtein distance.
 
 See also: 
 
@@ -40,13 +42,26 @@ See also:
 - [Edit distance] [1] on Wikipedia
 - [Levenshtein distance] [2] on Wikipedia
 - [Wagner-Fischer algorithm] [3] on Wikipedia
+- [Dynamic programming] [4] on Wikipedia
 
 ### SEQUENCE ALIGNMENT
 
+In bioinformatics, sequence alignment is a way of arranging the sequences of DNA, RNA, or protein, to **identify regions of similarity** that may be a consequence of _functional, structural, or evolutionary relationships_ between the sequences. It is also used for non-biological sequences, such as those present in natural language or financial data.
+
+Generally, there are two classes of computational approaches to sequence alignment: **global alignments** and **local alignments**. While global alignments necessarily span the entire length of all query sequences, local alignments identify regions of similarity within long sequences that are often widely divergent overall.
+
+One global alignment technique, the **Needleman–Wunsch algorithm**, is implemented here. Similar to the Wagner-Fischer algorithm, it uses a substitution matrix to assign scores to amino-acid matches or mismatches, and a gap penalty for matching an amino acid in one sequence to a gap in the other. (A common extension to the standard linear gap costs is the usage of two different gap penalties for opening a gap and for extending a gap. By setting the former much larger than the latter, the number of gaps in an alignment can be reduced and residues and gaps are kept together, which typically makes more biological sense.) While a weighted scoring matrix for DNA and RNA alignments may be used, here they are simply assigned a **positive match score** (+1), a **negative mismatch score** (-1), and a **negative gap penalty** (-1).
+
+To find the alignment with the highest score, an F matrix is allocated. The entry in row i and column j is denoted here by F(i,j). There is one row for each character in sequence A, and one column for each character in sequence B. Following the [priciple of optimality](https://en.wikipedia.org/wiki/Bellman_equation#Bellman.27s_Principle_of_Optimality), as the algorithm progresses, F(i,j) will be assigned the optimal score for the alignment of the first i = 0..n characters in A and the first j = 0..m characters in B.
+
+Once the F matrix is computed, the entry F(n,m) gives the maximum score among all possible alignments. To compute one global alignment that actually gives this score, we can trace back to the original cell to obtain the path for the best alignment. Note that there can be multiple equally best alignments; here we show just one.
+
+Even though dynamic programming can be extended to more than two sequences and is guaranteed to find the optimal global alignment, it is prohibitively slow for a large numbers of sequences or extremely long sequences. The alternative are efficient, heuristic algorithms or probabilistic methods designed for large-scale database search, that do not guarantee to find best matches, or semiglobal, hybrid methods.
+
 See also: 
 
-- [Sequence alignment] [4] on Wikipedia
-- [Needleman-Wunsch algorithm] [5] on Wikipedia
+- [Sequence alignment] [5] on Wikipedia
+- [Needleman-Wunsch algorithm] [6] on Wikipedia
 
 
 OPTION
@@ -93,7 +108,7 @@ insertion execution
 TO DO
 -----
 
-[Some of this, maybe.] [6] And there's many more string metrics out there! I also really want to read a good intro on bioinformatcs now.
+[Some of this, maybe.] [7] And there's many more string metrics out there! I also really want to read a good intro on bioinformatcs now.
 
 AUTHOR
 ------
@@ -113,6 +128,7 @@ Navarro, Gonzalo (2001). "A guided tour to approximate string matching". ACM Com
 [1]: https://en.wikipedia.org/wiki/Edit_distance
 [2]: https://en.wikipedia.org/wiki/Levenshtein_distance
 [3]: https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm
-[4]: https://en.wikipedia.org/wiki/Sequence_alignment
-[5]: https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm
-[6]: https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm#Possible_modifications
+[4]: https://en.wikipedia.org/wiki/Dynamic_programming#Dynamic_programming_in_computer_programming
+[5]: https://en.wikipedia.org/wiki/Sequence_alignment
+[6]: https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm
+[7]: https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm#Possible_modifications
