@@ -2,15 +2,15 @@
 ### Create doxygen documentation
 
 # Values for Mac OS X and Linux
-CPPCOMPILER				= g++
-COMPILER_FLAGS			= -Os
+CPPCOMPILER		= g++
+COMPILER_FLAGS		= -Os
 COMPILER_OUTPUT_FLAGS	= -o
-DELETE_RECURSIVE		= rm -rf
-EXECUTABLE				= bin/sda
-DOC_GENERATOR			= doxygen doc/doxyfile
-INCLUDE_PATH			= class/
-SRC_PATH				= src/
-DOC_PATH				= doc/
+DELETE_RECURSIVE	= rm -rf
+EXECUTABLE		= bin/sda
+DOC_GENERATOR		= doxygen doc/doxyfile
+INCLUDE_PATH		= class/
+SRC_PATH		= src/
+DOC_PATH		= doc/
 
 # Option 1: Generate program and documentation
 all : build documentation
