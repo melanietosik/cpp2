@@ -25,12 +25,12 @@
 
 /// Display usage information
 void print_help(char *p) {
-  std::cout << "Usage:      " << p << " [-option] [sequence1] [sequence2]" << std::endl;
+  std::cout << "Usage:      " << "./" << p << " [-option] [sequence1] [sequence2]" << std::endl;
   std::cout << "Option:     " << "-m  Compute minimum edit distance" << std::endl;
   std::cout << "            " << "-l  Compute levenshtein distance" << std::endl;
   std::cout << "            " << "-a  Compute global sequence alignment" << std::endl;
   std::cout << "            " << "-h  Print help message" << std::endl;
-  std::cout << "Example:    " << p << " -l insertion execution" << std::endl;
+  std::cout << "Example:    " << "./" << p << " -l insertion execution" << std::endl;
   std::cout << "Note:       " << "Input sequences are case sensitive" << std::endl;
 }
 
@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
   /// display usage information and exit
   if (argc == 1 || argc == 2 || argc >= 5) {
     print_help(argv[0]);
-    exit(1);
+    exit(0);
   }
   /// Use getopt() to get arguments with option
   while((tmp = getopt (argc, argv, "m:l:a:h")) != -1) {

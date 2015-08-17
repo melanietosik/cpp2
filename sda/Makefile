@@ -32,6 +32,7 @@ test : $(EXECUTABLE)
 	$(EXECUTABLE) -m insertion execution
 	$(EXECUTABLE) -l insertion execution
 	$(EXECUTABLE) -a GCATGCU GATTACA
+	$(EXECUTABLE) -h
 
 # Option 4: Clean up
 clean :
