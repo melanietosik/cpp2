@@ -108,7 +108,7 @@ insertion execution
 TO DO
 -----
 
-[Some of this, maybe.] [7] And there's many more string metrics out there! I also really want to read a good intro on bioinformatcs now.
+[Some of this, maybe.] [7] And there's many more string metrics out there! I also really want to read a good intro on bioinformatics now.
 
 AUTHOR
 ------
