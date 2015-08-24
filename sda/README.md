@@ -6,6 +6,11 @@ NAME
 
 sda - Computes various string metrics (Hamming distance, minimum edit distance, Levenshtein distance) and optimal global sequence alignment
 
+PREREQUISITES
+--------
+
+You need [GCC](https://gcc.gnu.org/), [GNU Make](https://www.gnu.org/software/make/), and [Doxygen](http://www.stack.nl/~dimitri/doxygen/) installed.
+
 SYNOPSIS
 --------
 
