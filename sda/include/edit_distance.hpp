@@ -142,7 +142,7 @@ public:
     @brief Print distance matrix to std::cout
     @note Doesn't get called, but might come in handy
   */
-  void print_matrix () {
+  void print_matrix() {
     // Iterate over distance matrix
     for (int i = 0; i <= n; i++) {
       for (int j = 0; j <= m; j++) {
