@@ -142,7 +142,7 @@ public:
     @brief Print F matrix to std::cout
     @note Doesn't get called, but might come in handy
   */
-  void print_matrix () {
+  void print_matrix() {
     // Iterate over F matrix
     for (int i = 0; i <= n; i++) {
       for (int j = 0; j <= m; j++) {
@@ -155,7 +155,7 @@ public:
   }
 
   // Print maximum alignment score and single best alignment
-  void print_alignment () {
+  void print_alignment() {
     std::cout << "Sequence A: " << alignA << "\n";
     std::cout << "Sequence B: " << alignB << "\n";
     std::cout << "Maximum alignment score: " << max_score << "\n\n";
