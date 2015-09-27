@@ -14,11 +14,17 @@ You need [GCC](https://gcc.gnu.org/), [GNU Make](https://www.gnu.org/software/ma
 SYNOPSIS
 --------
 
-$ make
+```
+make
+```
 
-$ make test 
+```
+make test 
+```
 
-$ ./bin/sda [-option] [sequence1] [sequence2]
+```
+./bin/sda [-option] [sequence1] [sequence2]
+```
 
 DESCRIPTION
 -----------
