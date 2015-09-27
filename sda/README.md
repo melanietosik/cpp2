@@ -104,17 +104,25 @@ insertion execution
 
 **COMMAND**
 
-  $ ./bin/sda -m insertion execution
+```
+./bin/sda -m insertion execution
+```
 
-  $ ./bin/sda -a insertion execution
-    
+```
+./bin/sda -a insertion execution
+```
+
 **OUTPUT**
 
-  Minimum edit distance: 5
-  
-  Sequence A: inse-rtion<br>
-  Sequence B: -execution<br>
-  Maximum alignment score: 0
+```
+Minimum edit distance: 5
+```
+
+```
+Sequence A: inse-rtion
+Sequence B: -execution
+Maximum alignment score: 0
+```
 
 TO DO
 -----
