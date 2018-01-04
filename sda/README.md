@@ -49,11 +49,11 @@ If two strings are of _equal length_, the minimum edit distance is obtained by c
 
 See also: 
 
-- [Hamming distance] [0] on Wikipedia
-- [Edit distance] [1] on Wikipedia
-- [Levenshtein distance] [2] on Wikipedia
-- [Wagner-Fischer algorithm] [3] on Wikipedia
-- [Dynamic programming] [4] on Wikipedia
+- [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance) on Wikipedia
+- [Edit distance](https://en.wikipedia.org/wiki/Edit_distance) on Wikipedia
+- [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) on Wikipedia
+- [Wagner-Fischer algorithm](https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm) on Wikipedia
+- [Dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming#Dynamic_programming_in_computer_programming) on Wikipedia
 
 ### SEQUENCE ALIGNMENT
 
@@ -71,8 +71,8 @@ Even though dynamic programming can be extended to more than two sequences and i
 
 See also: 
 
-- [Sequence alignment] [5] on Wikipedia
-- [Needleman-Wunsch algorithm] [6] on Wikipedia
+- [Sequence alignment](https://en.wikipedia.org/wiki/Sequence_alignment) on Wikipedia
+- [Needleman-Wunsch algorithm](https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm) on Wikipedia
 
 
 OPTION
@@ -127,7 +127,7 @@ Maximum alignment score: 0
 TO DO
 -----
 
-[Some of this, maybe.] [7] And there's many more string metrics out there! I also really want to read a good intro on bioinformatics now.
+[Some of this, maybe.](https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm#Possible_modifications) And there's many more string metrics out there! I also really want to read a good intro on bioinformatics now.
 
 AUTHOR
 ------
@@ -142,12 +142,3 @@ Jurafsky, Daniel, and James H. Martin. 2009. Speech and Language Processing: An 
 Needleman, Saul B.; and Wunsch, Christian D. (1970). "A general method applicable to the search for similarities in the amino acid sequence of two proteins". Journal of Molecular Biology 48 (3): 443–53.
 
 Navarro, Gonzalo (2001). "A guided tour to approximate string matching". ACM Computing Surveys 33 (1): 31–88.
-
-[0]: https://en.wikipedia.org/wiki/Hamming_distance
-[1]: https://en.wikipedia.org/wiki/Edit_distance
-[2]: https://en.wikipedia.org/wiki/Levenshtein_distance
-[3]: https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm
-[4]: https://en.wikipedia.org/wiki/Dynamic_programming#Dynamic_programming_in_computer_programming
-[5]: https://en.wikipedia.org/wiki/Sequence_alignment
-[6]: https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm
-[7]: https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm#Possible_modifications
